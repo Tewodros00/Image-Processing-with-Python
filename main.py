@@ -2,7 +2,7 @@ from processing_functions import *
 
 def main():
     print("Image processing tool")
-    print("1. Brightness\n2. Contrast\n")
+    print("1. Brightness\n2. Contrast\n3. Flipping\n")
     choice = int(input("Which one do you want: "))
 
     file = input("Enter the name of the file with it's extension: ")
@@ -17,6 +17,9 @@ def main():
             print("Sorry! can only change the contrast of Black and White images for now")
             return
         contrast(imgArray)
+    elif choice == 3:
+        direction = input("Vectically or Horizontally (enter V or H): ")
+        flipImage(imgArray, direction)
     
     new_image = Image.fromarray(imgArray)
     new_image.save("new_" + file)

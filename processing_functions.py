@@ -50,3 +50,16 @@ def contrast(imgArray):
         for j in range (len(imgArray[i])):
             imgArray[i][j] = int((imgArray[i][j] - mini) * m + mini)
 
+# flips an image horizontally or vertically
+def flipImage(imgArray, direction):
+    mirrored = numpy.copy(imgArray)
+    height = len(imgArray)
+    width = len(imgArray[0])
+    if (direction == "V"):
+        for i in range(height):
+            mirrored[i] = imgArray[height - 1 - i]
+    else:
+        for i in range(height):
+            for j in range(width):
+                mirrored[i][j] = imgArray[i][width-1-j]
+    imgArray[:] = mirrored
